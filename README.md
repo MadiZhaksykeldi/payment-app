@@ -12,58 +12,58 @@ This project provides an API for creating, managing, and tracking payments, with
 # Setup
 
 1. Clone the Repository\
-**git clone https://github.com/MadiZhaksykeldi/payment-app.git 
+**git clone https://github.com/MadiZhaksykeldi/payment-app.git \
 cd payment-app**
 
 2. Configure PostgreSQL\
-• Create a database named payment_db:
+• Create a database named payment_db:\
 **CREATE DATABASE payment_db;**
 
-• Update the database connection details in src/main/resources/application.properties:\
-spring.datasource.url=jdbc:postgresql://localhost:your_port/payment_db\
-spring.datasource.username=your_username\
-spring.datasource.password=your_password\
-spring.datasource.driver-class-name=org.postgresql.Driver
+&nbsp; &nbsp; &nbsp; &nbsp;• Update the database connection details in src/main/resources/application.properties:\
+&nbsp; &nbsp; &nbsp; &nbsp;spring.datasource.url=jdbc:postgresql://localhost:your_port/payment_db\
+&nbsp; &nbsp; &nbsp; &nbsp;spring.datasource.username=your_username\
+&nbsp; &nbsp; &nbsp; &nbsp;spring.datasource.password=your_password\
+&nbsp; &nbsp; &nbsp; &nbsp;spring.datasource.driver-class-name=org.postgresql.Driver
 
-3. Build and Run
+3. Build and Run\
 • Build the project with Maven:\
 **mvn clean install**
 
-• Run the application:\
-**mvn spring-boot:run**
+&nbsp; &nbsp; &nbsp; &nbsp;• Run the application:\
+&nbsp; &nbsp; &nbsp; &nbsp;**mvn spring-boot:run**
 
-The API will be available at **http://localhost:8080/api**.
+&nbsp; &nbsp; &nbsp; &nbsp;The API will be available at **http://localhost:8080/api**.
 
 # API Endpoints
 
 1. Create Payment\
-• Method: POST\
+• Method: $${\color{yellow}POST}$$\
 • URL: /api/payments\
 • Body:\
 **{\
-  "amount": 1000,\
-  "currency": "KZT",\
-  "description": "Order #123 payment",\
-  "clientId": "12345"\
+  &nbsp; &nbsp; &nbsp; &nbsp;"amount": 1000,\
+ &nbsp; &nbsp; &nbsp; &nbsp; "currency": "KZT",\
+  &nbsp; &nbsp; &nbsp; &nbsp;"description": "Order #123 payment",\
+  &nbsp; &nbsp; &nbsp; &nbsp;"clientId": "12345"\
 }**\
 • Response: (201 Created)\
 **{\
-  "paymentId": 1,\
-  "status": "PENDING"\
+  &nbsp; &nbsp; &nbsp; &nbsp;"paymentId": 1,\
+  &nbsp; &nbsp; &nbsp; &nbsp;"status": "PENDING"\
 }**
 
 2. Get Payment Status\
-• Method: GET\
+• Method: $${\color{yellow}GET}$$\
 • URL: /api/payments/{paymentId}\
-• Example: /api/payments/1\
+• Example: api/payments/1\
 • Response: (200 OK)\
 **{\
-  "paymentId": 1,\
-  "amount": 1000,\
-  "currency": "KZT",\
-  "description": "Order #123 payment",\
-  "clientId": "12345",\
-  "status": "PENDING"\
+  &nbsp; &nbsp; &nbsp; &nbsp;"paymentId": 1,\
+  &nbsp; &nbsp; &nbsp; &nbsp;"amount": 1000,\
+  &nbsp; &nbsp; &nbsp; &nbsp;"currency": "KZT",\
+  &nbsp; &nbsp; &nbsp; &nbsp;"description": "Order #123 payment",\
+  &nbsp; &nbsp; &nbsp; &nbsp;"clientId": "12345",\
+  &nbsp; &nbsp; &nbsp; &nbsp;"status": "PENDING"\
 }**
 
 3. Confirm Payment\
@@ -72,12 +72,12 @@ The API will be available at **http://localhost:8080/api**.
 • Example: /api/payments/1/confirm\
 • Response: (200 OK)\
 **{\
-  "paymentId": 1,\
-  "status": "CONFIRMED"\
+  &nbsp; &nbsp; &nbsp; &nbsp;"paymentId": 1,\
+  &nbsp; &nbsp; &nbsp; &nbsp;"status": "CONFIRMED"\
 }**
 
 4. Cancel Payment\
-• Method: POST\
+• Method: $${\color{yellow}POST}$$\
 • URL: /api/payments/{paymentId}/cancel\
 • Example: /api/payments/1/cancel\
 • Response: (200 OK)\
@@ -87,16 +87,16 @@ The API will be available at **http://localhost:8080/api**.
 }**
 
 5. Get Client Payments\
-• Method: GET\
+• Method: $${\color{yellow}GET}$$\
 • URL: /api/clients/{clientId}/payments\
-• Example: /api/clients/12345/payments\
+• Example: /api/clients/12345\
 • Response: (200 OK)\
 **{\
-  "paymentId": 1,\
-  "amount": 1000,\
-  "currency": "KZT",\
-  "status": "CONFIRMED"\
-}**\
+  &nbsp; &nbsp; &nbsp; &nbsp;"paymentId": 1,\
+  &nbsp; &nbsp; &nbsp; &nbsp;"amount": 1000,\
+  &nbsp; &nbsp; &nbsp; &nbsp;"currency": "KZT",\
+  &nbsp; &nbsp; &nbsp; &nbsp;"status": "CONFIRMED"\
+}**
 
 6. Error Responses\
 • 404 Not Found: Payment or client not found\
